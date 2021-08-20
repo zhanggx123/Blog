@@ -1,4 +1,4 @@
-package com.zgx.blog.config.kaptcha;
+package com.zgx.blog.config.captcha;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 @Configuration
-public class KaptchaConfig {
+public class CaptchaConfig {
 
 
     @Bean
