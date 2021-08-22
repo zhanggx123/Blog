@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,6 +70,16 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public SysUser getUserByUserName(String username) {
 
-        return userMapper.selectOne(new QueryWrapper<SysUser>().eq("nickname",username));
+        return userMapper.selectOne(new QueryWrapper<SysUser>().eq("account",username));
+    }
+
+    @Override
+    public RespBean registerUser(SysUser user) {
+        user.setCreate_date(LocalDateTime.now());
+        int insert = userMapper.insert(user);
+        if(insert==1)
+            return RespBean.success("注册成功");
+        return RespBean.error("注册失败");
+
     }
 }

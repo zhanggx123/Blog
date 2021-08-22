@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 
 import lombok.Data;
@@ -42,12 +43,14 @@ public class SysUser implements Serializable , UserDetails {
 
     private String avatar;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private LocalDateTime create_date;
 
     private Boolean deleted;
 
     private String email;
 
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
     private LocalDateTime last_login;
 
     private String mobile_phone_number;

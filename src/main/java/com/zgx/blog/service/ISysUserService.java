@@ -26,4 +26,9 @@ public interface ISysUserService extends IService<SysUser> {
     RespBean login(String username, String password, HttpServletRequest request);
 
     SysUser getUserByUserName(String username);
+
+    /**
+     * 用户注册
+     */
+    public RespBean registerUser(SysUser user);
 }
