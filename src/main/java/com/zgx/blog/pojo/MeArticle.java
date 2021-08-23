@@ -1,5 +1,6 @@
 package com.zgx.blog.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -46,6 +47,14 @@ public class MeArticle implements Serializable {
     private Long body_id;
 
     private Integer category_id;
+
+    @TableField(exist = false)
+    private MeArticleBody meArticleBody;
+
+    @TableField(exist = false)
+    private SysUser sysUser;
+
+
 
 
 }
