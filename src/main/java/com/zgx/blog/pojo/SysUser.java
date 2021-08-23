@@ -64,6 +64,7 @@ public class SysUser implements Serializable , UserDetails {
     private String status;
 
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

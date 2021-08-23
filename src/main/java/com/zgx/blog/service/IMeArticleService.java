@@ -3,6 +3,8 @@ package com.zgx.blog.service;
 import com.zgx.blog.pojo.MeArticle;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -12,5 +14,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-08-19
  */
 public interface IMeArticleService extends IService<MeArticle> {
+
+    /**
+     * 查询全部文章
+     */
+    List<MeArticle> queryArticleAll();
 
 }

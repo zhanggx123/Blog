@@ -4,6 +4,8 @@ import com.zgx.blog.pojo.MeArticle;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -14,5 +16,10 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface MeArticleMapper extends BaseMapper<MeArticle> {
+
+    /**
+     * 查询全部文章
+     */
+    List<MeArticle> queryArticleAll();
 
 }

@@ -4,7 +4,10 @@ import com.zgx.blog.pojo.MeArticle;
 import com.zgx.blog.mapper.MeArticleMapper;
 import com.zgx.blog.service.IMeArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MeArticleServiceImpl extends ServiceImpl<MeArticleMapper, MeArticle> implements IMeArticleService {
 
+    @Autowired
+    private MeArticleMapper meArticleMapper;
+
+    @Override
+    public List<MeArticle> queryArticleAll() {
+        return meArticleMapper.queryArticleAll();
+    }
 }

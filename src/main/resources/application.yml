@@ -35,7 +35,7 @@ mybatis-plus:
   #配置Mapper映射文件
   mapper-locations: classpath*:/mapper/*Mapper.xml
   # 配置MyBatis数据返回类型别名(默认别名是类名)
-  type-aliases-package: com.zgx.bolg.pojp
+  type-aliases-package: com.zgx.blog.pojp
   configuration:
     map-underscore-to-camel-case: false
 
