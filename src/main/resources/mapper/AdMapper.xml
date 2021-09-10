@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgx.mapper.AdMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ad_id, position_id, media_type, ad_name, ad_link, ad_code, start_time, end_time, link_man, link_email, link_phone, click_count, enabled
+    </sql>
+
+</mapper>

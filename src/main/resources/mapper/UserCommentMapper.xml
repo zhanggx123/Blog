@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgx.mapper.UserCommentMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        c_id, user_id, type_id, commit_id, commit_content, commit_user_id, commit_time, commit_ip
+    </sql>
+
+</mapper>

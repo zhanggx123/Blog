@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgx.mapper.UserMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, group_id, user_name, user_pwd, user_phone, user_sex, user_qq, user_email, user_address, user_mark, user_rank_id, user_last_login_ip, user_birthday, user_description, user_image_url, user_school, user_register_time, user_register_ip, user_last_update_time, user_weibo, user_blood_type, user_says, user_lock, user_freeze, user_power
+    </sql>
+
+</mapper>
