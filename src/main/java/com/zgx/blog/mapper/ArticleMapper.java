@@ -2,6 +2,7 @@ package com.zgx.blog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zgx.blog.pojo.Article;
+import com.zgx.blog.pojo.RespBean;
 
 /**
  * <p>
@@ -12,5 +13,10 @@ import com.zgx.blog.pojo.Article;
  * @since 2021-09-10
  */
 public interface ArticleMapper extends BaseMapper<Article> {
+
+    /**
+     * 增加文章
+     */
+    RespBean addArticle(Article article);
 
 }

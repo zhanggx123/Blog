@@ -1,8 +1,14 @@
 package com.zgx.blog.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.zgx.blog.pojo.Article;
+import com.zgx.blog.pojo.RespBean;
+import com.zgx.blog.service.IArticleService;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +21,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
+
+
+    @Autowired
+    private IArticleService articleService;
+
+    @ApiOperation(value = "增加文章")
+    @PostMapping("/addArticle")
+    public RespBean addArticle(@RequestBody Article article){
+        return articleService.addArticle(article);
+    }
+
+    @ApiOperation(value = "删除文章")
+    @DeleteMapping("/{id}")
+    public RespBean delArticle(@PathVariable Integer id){
+        return articleService.delArticle(id);
+    }
+
+    @ApiOperation(value = "修改文章")
+    @PostMapping("/upArticle")
+    public RespBean upArticle(@RequestBody Article article){
+        return articleService.addArticle(article);
+    }
+
+    @ApiOperation(value = "查找文章")
+    @GetMapping("/selectArticle")
+    public List<Article> selectArticle(){
+        return articleService.queryArticle();
+    }
+
 
 }
