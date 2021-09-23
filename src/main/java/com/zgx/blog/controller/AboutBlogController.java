@@ -1,8 +1,13 @@
 package com.zgx.blog.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.zgx.blog.pojo.AboutBlog;
+import com.zgx.blog.pojo.RespBean;
+import com.zgx.blog.service.impl.AboutBlogServiceImpl;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +20,32 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/about-blog")
 public class AboutBlogController {
+
+    @Autowired
+    private AboutBlogServiceImpl aboutBlogService;
+
+    @ApiOperation(value = "博客信息展示")
+    @GetMapping("/")
+    public List<AboutBlog> showAboutBlog(){
+        return aboutBlogService.showAboutBlog();
+    }
+
+    @ApiOperation(value = "博客信息删除")
+    @DeleteMapping("/{id}")
+    public RespBean delAboutBlog(@PathVariable Integer id){
+        return aboutBlogService.delAboutBlog(id);
+    }
+
+    @ApiOperation(value = "博客信息修改")
+    @PostMapping("/{AboutBlog}")
+    public RespBean upDateAboutBlog(@PathVariable AboutBlog aboutBlog){
+        return aboutBlogService.upDataAboutBlog(aboutBlog);
+    }
+
+    @ApiOperation(value = "博客信息新增")
+    @PostMapping("/addAboutBlog{AboutBlog}")
+    public RespBean addAboutBlog(@PathVariable AboutBlog aboutBlog){
+        return aboutBlogService.addAboutBlog(aboutBlog);
+    }
 
 }
