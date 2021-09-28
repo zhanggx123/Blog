@@ -22,44 +22,5 @@ import java.util.List;
 @RequestMapping("/user-group")
 public class UserGroupController {
 
-    @Autowired
-    private IUserService userService;
-
-
-    /**
-     * 获取all用户信息
-     */
-    @ApiOperation(value = "获取全部用户信息")
-    @GetMapping("/")
-    public RespBean getAllUserInformation(){
-        return userService.getAllUser();
-    }
-
-    /**
-     * 获取指定用户信息
-     */
-    @ApiOperation(value = "获取指定用户信息")
-    @GetMapping("/{id}")
-    public RespBean getUserById(@PathVariable Integer id){
-        return userService.getUserById(id);
-    }
-
-    /**
-     * 添加用户
-     */
-    @ApiOperation(value = "添加用户")
-    @PostMapping("/")
-    public RespBean addUser(@RequestBody User user){
-        return userService.addUser(user);
-    }
-
-    /**
-     * 移除用户
-     */
-    @ApiOperation(value = "移除用户")
-    @DeleteMapping("/")
-    public RespBean moveUser(@RequestBody User user){
-        return userService.moveUser(user);
-    }
 
 }

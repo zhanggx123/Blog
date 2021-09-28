@@ -13,4 +13,6 @@ import com.zgx.blog.pojo.User;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+
+
 }
