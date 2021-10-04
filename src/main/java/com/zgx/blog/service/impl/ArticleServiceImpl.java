@@ -24,6 +24,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Autowired
     private IArticleService articleService;
+    @Autowired
+    private ArticleMapper articleMapper;
 
     @Override
     public RespBean addArticle(Article article) {
@@ -55,5 +57,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     public List<Article> queryArticle() {
         List<Article> articleList = articleService.list();
         return articleList;
+    }
+
+    @Override
+    public Article queryByIdArticle(Integer id) {
+        return articleMapper.selectById(id);
     }
 }

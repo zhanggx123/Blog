@@ -33,8 +33,13 @@ public interface IArticleService extends IService<Article> {
     RespBean upArticle(Article article);
 
     /**
-     * 查询全部文章
+     * 查询全部文章list
      */
     List<Article> queryArticle();
+
+    /**
+     * 查询文章
+     */
+    Article queryByIdArticle(Integer id);
 
 }

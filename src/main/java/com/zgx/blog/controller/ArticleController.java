@@ -44,10 +44,16 @@ public class ArticleController {
         return articleService.addArticle(article);
     }
 
-    @ApiOperation(value = "查找文章")
-    @GetMapping("/selectArticle")
+    @ApiOperation(value = "展示文章")
+    @GetMapping("/listArticle")
     public List<Article> selectArticle(){
         return articleService.queryArticle();
+    }
+
+    @ApiOperation(value = "查询文章")
+    @PostMapping("/{id}")
+    public Article queryByIdArticle(@PathVariable Integer id){
+        return articleService.queryByIdArticle(id);
     }
 
 
