@@ -1,5 +1,6 @@
 package com.zgx.blog.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zgx.blog.mapper.AboutBlogMapper;
 import com.zgx.blog.pojo.AboutBlog;
@@ -24,6 +25,8 @@ public class AboutBlogServiceImpl extends ServiceImpl<AboutBlogMapper, AboutBlog
 
     @Autowired
     private AboutBlogServiceImpl aboutBlogService;
+    @Autowired
+    private AboutBlogMapper aboutBlogMapper;
 
     @Override
     public RespBean addAboutBlog(AboutBlog aboutBlog) {
@@ -53,6 +56,11 @@ public class AboutBlogServiceImpl extends ServiceImpl<AboutBlogMapper, AboutBlog
         return list;
 
     }
-    
+
+    @Override
+    public AboutBlog queryById(Integer id) {
+        return aboutBlogMapper.selectById(id);
+    }
+
 
 }

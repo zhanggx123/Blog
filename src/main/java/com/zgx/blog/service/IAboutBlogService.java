@@ -36,4 +36,9 @@ public interface IAboutBlogService extends IService<AboutBlog> {
      */
     List<AboutBlog> showAboutBlog();
 
+    /**
+     * 根据aboutBlog id查询一条
+     */
+    AboutBlog queryById(Integer id);
+
 }

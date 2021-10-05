@@ -41,8 +41,8 @@ public class ArticleController {
 
     @ApiOperation(value = "修改文章")
     @PostMapping("/upArticle")
-    public RespBean upArticle(@RequestBody Article article){
-        return articleService.upArticle(article);
+    public RespBean upArticle(@RequestBody Article article,@RequestBody AboutBlog aboutBlog){
+        return articleService.upArticle(article,aboutBlog);
     }
 
     @ApiOperation(value = "展示文章")

@@ -36,11 +36,11 @@ public class AboutBlogController {
         return aboutBlogService.delAboutBlog(id);
     }
 
-    @ApiOperation(value = "博客信息修改")
-    @PostMapping("/{AboutBlog}")
-    public RespBean upDateAboutBlog(@PathVariable AboutBlog aboutBlog){
-        return aboutBlogService.upDataAboutBlog(aboutBlog);
-    }
+//    @ApiOperation(value = "博客信息修改")
+//    @PostMapping("/{AboutBlog}")
+//    public RespBean upDateAboutBlog(@PathVariable AboutBlog aboutBlog){
+//        return aboutBlogService.upDataAboutBlog(aboutBlog);
+//    }
 
 //    @ApiOperation(value = "博客信息新增")
 //    @PostMapping("/addAboutBlog{AboutBlog}")

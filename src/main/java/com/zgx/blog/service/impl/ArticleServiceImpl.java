@@ -32,7 +32,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     public RespBean addArticle(Article article, AboutBlog aboutBlog) {
-        if(articleService.save(article)&&aboutBlogService.save(aboutBlog)){
+        RespBean states = aboutBlogService.addAboutBlog(aboutBlog);
+        if(articleService.save(article)&&states.getCode()==200){
             return RespBean.success("添加成功");
         }else {
             return RespBean.error("添加失败!");
@@ -41,16 +42,17 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     public RespBean delArticle(Integer  id) {
-
-        if(articleService.removeById(id)&&aboutBlogService.removeById(id)){
+        RespBean states = aboutBlogService.delAboutBlog(id);
+        if(articleService.removeById(id)&&states.getCode()==200){
             return RespBean.success("删除成功!");
         }
         return RespBean.error("删除失败!");
     }
 
     @Override
-    public RespBean upArticle(Article article) {
-        if(articleService.updateById(article)){
+    public RespBean upArticle(Article article,AboutBlog aboutBlog) {
+        RespBean states = aboutBlogService.upDataAboutBlog(aboutBlog);
+        if(articleService.updateById(article)&&states.getCode()==200){
             return RespBean.success("更新成功!");
         }
         return RespBean.error("更新失败!");

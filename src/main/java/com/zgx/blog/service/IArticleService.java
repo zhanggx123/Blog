@@ -31,7 +31,7 @@ public interface IArticleService extends IService<Article> {
     /**
      * 修改文章
      */
-    RespBean upArticle(Article article);
+    RespBean upArticle(Article article,AboutBlog aboutBlog);
 
     /**
      * 查询全部文章list
