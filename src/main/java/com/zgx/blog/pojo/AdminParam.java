@@ -10,12 +10,12 @@ import lombok.EqualsAndHashCode;
 @ApiModel(value="AdminParam对象", description="")
 public class AdminParam {
 
-    @ApiModelProperty(value = "id不用传" ,required = true)
+    @ApiModelProperty(value = "id不用传")
     private Integer id;
 
-    @ApiModelProperty(value = "用户名" ,required = true)
+    @ApiModelProperty(value = "用户名" )
     private String username;
-    @ApiModelProperty(value = "密码" ,required = true)
+    @ApiModelProperty(value = "密码")
     private String password;
 
 

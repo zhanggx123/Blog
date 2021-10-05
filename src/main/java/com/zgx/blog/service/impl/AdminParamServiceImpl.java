@@ -1,5 +1,6 @@
 package com.zgx.blog.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 
@@ -19,7 +20,10 @@ public class AdminParamServiceImpl extends ServiceImpl<AdminParamMapper, AdminPa
 
     @Override
     public RespBean login(AdminParam adminParam) {
+
         AdminParam loginAdmin = adminParamMapper.login(adminParam);
+    //    AdminParam loginAdmin = adminParamMapper.selectOne(new QueryWrapper<user>().eq("username", adminParam.getUsername()).eq("password", adminParam.getPassword()));
+        System.out.println(loginAdmin);
         if(loginAdmin!=null)
             return RespBean.success("登录成功!",loginAdmin.getUsername());
         return RespBean.error("用户名或密码错误！");

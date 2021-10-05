@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zgx.mapper.AdminParamMapper">
+<mapper namespace="com.zgx.blog.mapper.AdminParamMapper">
 
+    <resultMap id="BaseResultMap" type="com.zgx.blog.pojo.AdminParam">
+        <id column="id" property="id"/>
+        <result column="user_name" property="username"/>
+        <result column="user_pwd" property="password"/>
 
-    <select id="login" parameterType="com.zgx.blog.pojo.AdminParam" resultType="com.zgx.blog.pojo.AdminParam">
-        SELECT user_id, user_name,user_pwd from user WHERE user_name=#{adminParam.username} and user_pwd = #{adminParam.password}
+    </resultMap>
+
+    <select id="login" resultMap="BaseResultMap">
+        SELECT  user_name,user_pwd from user WHERE user_name=#{adminParam.username} and user_pwd = #{adminParam.password}
     </select>
 
 </mapper>
