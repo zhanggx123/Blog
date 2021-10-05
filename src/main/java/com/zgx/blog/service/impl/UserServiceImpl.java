@@ -6,8 +6,11 @@ import com.zgx.blog.pojo.RespBean;
 import com.zgx.blog.pojo.User;
 import com.zgx.blog.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -24,6 +27,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Autowired
     private IUserService userService;
 
+
+
     @Override
     public RespBean getAllUser() {
         List<User> userList = userService.list();
@@ -38,10 +43,32 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public RespBean addUser(User user) {
-        if(userService.save(user)){
-            RespBean.success("添加成功!",user);
+        //设置默认值
+        user.setGroup_id(1);  //用户组
+        user.setUser_mark(0); //用户积分
+        user.setUser_rank_id(1); //用户等级
+        user.setUser_last_login_ip("192.168.1.1");
+        if(user.getUser_description().equals("")){
+            user.setUser_description("这个人很懒，懒得描述自己！");
         }
-        return RespBean.error("添加失败!");
+        user.setUser_register_ip("192.168.1.2");
+        if(user.getUser_says().equals("")){
+            user.setUser_says("好好学习，天天向上");
+        }
+
+        user.setUser_lock(0);
+        user.setUser_freeze(0);
+        user.setUser_power("all");
+        //日期转换
+        Date date = new Date();
+        String strDateFormat = "yyyyMMdd";
+        SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
+        String format = sdf.format(date);
+        user.setUser_register_time(Integer.parseInt(format));
+        user.setUser_last_update_time(Integer.parseInt(format));
+        //
+        userService.save(user);
+        return RespBean.error("添加成功!");
     }
 
     @Override
@@ -51,4 +78,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         return RespBean.error("移除失败!",user);
     }
+
 }

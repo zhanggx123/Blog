@@ -44,8 +44,8 @@ public class UserController {
     /**
      * 添加用户
      */
-    @ApiOperation(value = "添加用户")
-    @PostMapping("/")
+    @ApiOperation(value = "用户注册")
+    @PostMapping("/register")
     public RespBean addUser(@RequestBody User user){
         return userService.addUser(user);
     }
@@ -54,7 +54,7 @@ public class UserController {
      * 移除用户
      */
     @ApiOperation(value = "移除用户")
-    @DeleteMapping("/")
+    @DeleteMapping("/remove")
     public RespBean moveUser(@RequestBody User user){
         return userService.moveUser(user);
     }

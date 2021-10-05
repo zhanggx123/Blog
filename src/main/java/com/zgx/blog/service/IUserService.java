@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.zgx.blog.pojo.RespBean;
 import com.zgx.blog.pojo.User;
 
+
 /**
  * <p>
  *  服务类
@@ -33,5 +34,6 @@ public interface IUserService extends IService<User> {
      * 移除用户
      */
     RespBean moveUser(User user);
+
 
 }
