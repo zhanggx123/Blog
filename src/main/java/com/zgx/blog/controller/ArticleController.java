@@ -1,6 +1,7 @@
 package com.zgx.blog.controller;
 
 
+import com.zgx.blog.pojo.AboutBlog;
 import com.zgx.blog.pojo.Article;
 import com.zgx.blog.pojo.RespBean;
 import com.zgx.blog.service.IArticleService;
@@ -28,8 +29,8 @@ public class ArticleController {
 
     @ApiOperation(value = "增加文章")
     @PostMapping("/addArticle")
-    public RespBean addArticle(@RequestBody Article article){
-        return articleService.addArticle(article);
+    public RespBean addArticle(@RequestBody Article article, @RequestBody AboutBlog aboutBlog){
+        return articleService.addArticle(article,aboutBlog);
     }
 
     @ApiOperation(value = "删除文章")
@@ -41,7 +42,7 @@ public class ArticleController {
     @ApiOperation(value = "修改文章")
     @PostMapping("/upArticle")
     public RespBean upArticle(@RequestBody Article article){
-        return articleService.addArticle(article);
+        return articleService.upArticle(article);
     }
 
     @ApiOperation(value = "展示文章")

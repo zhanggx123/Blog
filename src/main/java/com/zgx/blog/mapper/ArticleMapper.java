@@ -14,9 +14,5 @@ import com.zgx.blog.pojo.RespBean;
  */
 public interface ArticleMapper extends BaseMapper<Article> {
 
-    /**
-     * 增加文章
-     */
-    RespBean addArticle(Article article);
 
 }

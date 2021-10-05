@@ -1,6 +1,7 @@
 package com.zgx.blog.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zgx.blog.pojo.AboutBlog;
 import com.zgx.blog.pojo.Article;
 import com.zgx.blog.pojo.RespBean;
 
@@ -19,7 +20,7 @@ public interface IArticleService extends IService<Article> {
     /**
      * 增加文章
      */
-    RespBean addArticle(Article article);
+    RespBean addArticle(Article article, AboutBlog aboutBlog);
 
 
     /**

@@ -2,6 +2,7 @@ package com.zgx.blog.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zgx.blog.mapper.ArticleMapper;
+import com.zgx.blog.pojo.AboutBlog;
 import com.zgx.blog.pojo.Article;
 import com.zgx.blog.pojo.RespBean;
 import com.zgx.blog.service.IArticleService;
@@ -26,10 +27,12 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     private IArticleService articleService;
     @Autowired
     private ArticleMapper articleMapper;
+    @Autowired
+    private AboutBlogServiceImpl aboutBlogService;
 
     @Override
-    public RespBean addArticle(Article article) {
-        if(articleService.save(article)){
+    public RespBean addArticle(Article article, AboutBlog aboutBlog) {
+        if(articleService.save(article)&&aboutBlogService.save(aboutBlog)){
             return RespBean.success("添加成功");
         }else {
             return RespBean.error("添加失败!");
@@ -39,7 +42,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Override
     public RespBean delArticle(Integer  id) {
 
-        if(articleService.removeById(id)){
+        if(articleService.removeById(id)&&aboutBlogService.removeById(id)){
             return RespBean.success("删除成功!");
         }
         return RespBean.error("删除失败!");

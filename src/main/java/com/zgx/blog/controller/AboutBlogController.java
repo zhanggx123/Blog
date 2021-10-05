@@ -42,10 +42,10 @@ public class AboutBlogController {
         return aboutBlogService.upDataAboutBlog(aboutBlog);
     }
 
-    @ApiOperation(value = "博客信息新增")
-    @PostMapping("/addAboutBlog{AboutBlog}")
-    public RespBean addAboutBlog(@PathVariable AboutBlog aboutBlog){
-        return aboutBlogService.addAboutBlog(aboutBlog);
-    }
+//    @ApiOperation(value = "博客信息新增")
+//    @PostMapping("/addAboutBlog{AboutBlog}")
+//    public RespBean addAboutBlog(@PathVariable AboutBlog aboutBlog){
+//        return aboutBlogService.addAboutBlog(aboutBlog);
+//    }
 
 }
