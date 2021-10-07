@@ -1,6 +1,8 @@
 package com.zgx.blog.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zgx.blog.pojo.AboutBlog;
 import com.zgx.blog.pojo.RespBean;
 
@@ -34,6 +36,6 @@ public interface AboutBlogMapper extends BaseMapper<AboutBlog> {
     /**
      * 展示博客信息
      */
-    List<AboutBlog> showAboutBlog();
+    IPage<AboutBlog> showAboutBlog(Page<AboutBlog> page);
 
 }

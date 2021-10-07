@@ -3,6 +3,7 @@ package com.zgx.blog.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zgx.blog.pojo.AboutBlog;
 import com.zgx.blog.pojo.RespBean;
+import com.zgx.blog.pojo.RespPageBean;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public interface IAboutBlogService extends IService<AboutBlog> {
     /**
      * 展示博客信息
      */
-    List<AboutBlog> showAboutBlog();
+    RespPageBean showAboutBlog(Integer currentPage,Integer size);
 
     /**
      * 根据aboutBlog id查询一条

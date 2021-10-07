@@ -18,9 +18,10 @@ import cn.hutool.log.LogFactory;
 
 
 /**
- */
+
 @ServerEndpoint("/imserver/{userId}")
 @Component
+*/
 public class WebSocketServer {
 
     static Log log=LogFactory.get(WebSocketServer.class);

@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zgx.mapper.AboutBlogMapper">
+<mapper namespace="com.zgx.blog.mapper.AboutBlogMapper">
+
+    <resultMap id="BaseResultMap" type="com.zgx.blog.pojo.AboutBlog">
+        <id column="blog_id" property="blog_id"/>
+        <result column="blog_keyword" property="blog_keyword"/>
+        <result column="blog_description" property="blog_description"/>
+        <result column="blog_name" property="blog_name"/>
+        <result column="blog_title" property="blog_title" />
+    </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         blog_id, blog_keyword, blog_description, blog_name, blog_title
     </sql>
+
+    <!-- aboutBlog 分页 -->
+    <select id="showAboutBlog" resultMap="BaseResultMap">
+        select blog_id , blog_keyword , blog_description , blog_name , blog_title
+        from about_blog
+        order by blog_id
+    </select>
 
 </mapper>
